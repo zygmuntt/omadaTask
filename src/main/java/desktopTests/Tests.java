@@ -1,4 +1,4 @@
-package desktopTests;
+package pl.zygmuntt.desktopTests;
 
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -6,11 +6,12 @@ import pages.Search;
 import utility.BaseTest;
 import utility.DataProviderClass;
 import utility.Retry;
-import static utility.testData.*;
 
-public class test extends BaseTest {
+import static utility.TestData.*;
+
+public class Tests extends BaseTest {
     @Test(retryAnalyzer = Retry.class)
-    public void TestCase1(){
+    public void homepageShouldContainsAllRequiredLinksAndButtons() { //tc1
         MainPage mainPage = new MainPage(driver);
         mainPage
                 .closeCookies()
@@ -24,7 +25,7 @@ public class test extends BaseTest {
     }
 
     @Test(retryAnalyzer = Retry.class)
-    public void TestCase2(){
+    public void userShouldBeAbleToBookADemo() { //tc2
         MainPage mainPage = new MainPage(driver);
         mainPage
                 .closeCookies()
@@ -46,20 +47,20 @@ public class test extends BaseTest {
     }
 
     @Test(retryAnalyzer = Retry.class, dataProvider = "search-inputs", dataProviderClass = DataProviderClass.class)
-    public void TestCase5(String searchInput){
+    public void searchShouldBeShowingCorrectResults(String searchInput) { //tc5
         Search search = new Search(driver);
         search
                 .fillSearchInputNavBar(searchInput)
                 .confirmSearchNavBar()
                 .checkSearchResults()
                 .clearSearchInput()
-                .fillSearchInputOnOutput(searchInput.substring(0,searchInput.length()-1))
+                .fillSearchInputOnOutput(searchInput.substring(0, searchInput.length() - 1))
                 .confirmSearchOnOutput()
                 .checkSearchResults();
     }
 
     @Test(retryAnalyzer = Retry.class)
-    public void TestCase7(){
+    public void shouldBeAbleToLearnMoreAboutSolutions() { //tc6
         MainPage mainPage = new MainPage(driver);
         mainPage
                 .closeCookies()

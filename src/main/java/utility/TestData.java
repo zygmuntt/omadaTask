@@ -1,6 +1,6 @@
 package utility;
 
-public  class testData {
+public class TestData {
     public static final String firstName = "Test-user";
     public static final String lastName = "比bǐ-æøęą";
     public static final String company = "NĐ äB☼1-2&!--";
